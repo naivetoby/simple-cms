@@ -29,9 +29,9 @@
 #是否启用超级管理员
 requireAdmin: true
 #超级管理员登录名
-superUserName: heart2015
+superUserName: heart2020
 #超级管理员密码
-superUserPwd: heart2015
+superUserPwd: heart2020
 #是否为开发模式
 isDevelopment: true
 #登录错误次数上限

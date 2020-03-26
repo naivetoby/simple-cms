@@ -34,7 +34,7 @@ superUserName: heart2020
 #超级管理员密码
 superUserPwd: heart2020
 #是否为开发模式
-isDevelopment: true
+isDevelopment: false
 #登录错误次数上限
 errorLoginCount: 3
 #登录错误超过错误次数上限，用户锁定时间（分钟）

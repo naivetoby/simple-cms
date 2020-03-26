@@ -20,8 +20,9 @@
 
 ## 数据库初始化
 ```text
-1. 将 sql/cms.sql 中的 heart 替换成数据库的用户名
-2. 再执行SQL完成初始化
+1. 新建一个 utf8 编码的数据库名为 cms
+2. 将 sql/cms.sql 中的 heart 替换成数据库的用户名
+3. 再执行SQL完成初始化
 ```
 
 ## application.yml 配置

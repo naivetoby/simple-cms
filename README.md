@@ -1,6 +1,6 @@
 ## Simple-CMS
 
- 非常轻量级的 CMS 管理系统，使用 Spring-Boot 开发。
+ 非常轻量级的 CMS 后台管理系统，使用 Spring-Boot 开发。
 
 ## Spring-Boot Dependency
 

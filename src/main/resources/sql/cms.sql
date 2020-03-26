@@ -120,7 +120,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`heart`@`%` SQL SECURITY DEFINER VIEW `v_user
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `pro_important_role`;
 delimiter ;;
-CREATE DEFINER=`heart`@`%` PROCEDURE `pro_important_role`()
+CREATE DEFINER=`heart`@`%` PROCEDURE `pro_important_role`(IN v_role_id INT, IN v_user_id INT)
 BEGIN
     START TRANSACTION;
     DELETE FROM t_role_user
@@ -136,7 +136,7 @@ delimiter ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `pro_role`;
 delimiter ;;
-CREATE DEFINER=`heart`@`%` PROCEDURE `pro_role`()
+CREATE DEFINER=`heart`@`%` PROCEDURE `pro_role`(IN v_role_id INT)
 BEGIN
     START TRANSACTION;
     DELETE FROM t_role
@@ -153,7 +153,7 @@ delimiter ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `pro_user`;
 delimiter ;;
-CREATE DEFINER=`heart`@`%` PROCEDURE `pro_user`()
+CREATE DEFINER=`heart`@`%` PROCEDURE `pro_user`(IN v_user_id INT)
 BEGIN
     START TRANSACTION;
     DELETE FROM t_user

@@ -1,0 +1,80 @@
+@CHARSET "UTF-8";
+
+.out_32Icon {
+	background-image: url(../image/ext/out_32Icon.png) !important;
+}
+
+.default_btn_icon_send {
+	background-image: url(../image/ext/send.png) !important;
+}
+
+.default_btn_icon_delete {
+	background-image: url(../image/ext/delete_edit.png) !important;
+}	
+
+.default_btn_icon_sent {
+	background-image: url(../image/ext/sent.png) !important;
+}
+
+.default_btn_icon_close {
+	background-image: url(../image/ext/close.png) !important;
+}
+
+.default_btn_icon_cao  {
+	background-image: url(../image/ext/cao.png) !important;
+}
+
+.default_btn_icon_forward {
+	background-image: url(../image/ext/forward.png) !important;
+}
+
+.default_btn_icon_scraft {
+	background-image: url(../image/ext/move.png) !important;
+}
+
+.default_btn_icon_biaoji {
+	background-image: url(../image/ext/biaoji.png) !important;
+}
+
+.default_btn_icon_read {
+	background-image: url(../image/ext/read.png) !important;
+}
+
+.default_btn_icon_laji {
+	background-image : url(../image/ext/delete.png) !important;
+}
+
+.default_btn_icon_delete {
+	background-image : url(../image/ext/laji.png) !important;
+}
+
+.default_btn_icon_hasdelete {
+	background-image : url(../image/ext/hasdelete.png) !important;
+}
+
+.default_btn_icon_chedidelete {
+	background-image : url(../image/ext/chedidelete.png) !important
+}
+
+.default_btn_icon_huifu {
+	background-image : url(../image/ext/huifu.png) !important
+}
+
+.default_btn_icon_set {
+	background-image : url(../image/ext/set.png) !important
+}
+
+.default_btn_icon_contents {
+	background-image : url(../image/ext/contents.png) !important
+}
+
+.default_btn_icon_adduser {
+	background-image : url(../image/ext/add.png) !important
+}
+
+.default_btn_icon_group {
+	background-image : url(../image/ext/group.png) !important
+}
+.default_btn_icon_update {
+	background-image : url(../image/ext/edit.png) !important
+}

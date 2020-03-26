@@ -1,0 +1,35 @@
+server:
+  port: 8080
+  forward-headers-strategy: native
+  compression:
+    enabled: true
+    min-response-size: 0
+
+spring:
+  resources:
+    static-locations: classpath:/static/,classpath:/public/
+  datasource:
+    host: 192.168.50.211
+    port: 3306
+    db:
+      cms: cms
+      app: app_db_name
+    user: heart
+    password: heart2020
+
+#是否启用超级管理员
+requireAdmin: true
+#超级管理员登录名
+superUserName: heart2020
+#超级管理员密码
+superUserPwd: heart2020
+#是否为开发模式
+isDevelopment: true
+#登录错误次数上限
+errorLoginCount: 3
+#登录错误超过错误次数上限，用户锁定时间（分钟）
+lockTime: 1
+#保存标签的开启/关闭
+saveLabel: false
+#提示时间
+tipTime: 7

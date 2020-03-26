@@ -1,0 +1,39 @@
+Ext.define('OA.model.core.log.Log', {
+    extend: 'Ext.data.Model',
+    fields: [{
+        name: 'logId',
+        type: 'long',
+        convert: null
+    }, {
+        name: 'clientIp',
+        type: 'string',
+        label: '客户端IP',
+        queryAble: true
+    }, {
+        name: 'moduleName',
+        type: 'string',
+        label: '模块',
+        queryAble: true
+    }, {
+        name: 'action',
+        type: 'string',
+        label: '日志信息',
+        queryAble: true
+    }, {
+        name: 'logTime',
+        type: 'date',
+        label: '日志时间',
+        queryAble: true,
+    }, {
+        name: 'userName',
+        type: 'string',
+        label: '用户名',
+        queryAble: true
+    }, {
+        name: 'loginName',
+        type: 'string',
+        label: '登录名',
+        queryAble: true
+    }],
+    idProperty: 'logId'
+});

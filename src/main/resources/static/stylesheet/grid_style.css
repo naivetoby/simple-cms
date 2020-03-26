@@ -1,0 +1,228 @@
+.role_auth_tree_class .x-grid-cell-inner {
+	padding: 0px;
+}
+
+.role_auth_tree_class .x-grid-cell-inner.x-grid-cell-inner-treecolumn {
+	padding: 5px 10px 4px 6px;
+}
+
+.role_auth_tree_class .btn-switch {
+	display: inline-block;
+	position: relative;
+	line-height: 24px;
+	height: 22px;
+	width: 52px;
+	background: #ddd;
+	margin: 0 auto;
+	margin-top: 2px;
+}
+
+.role_auth_tree_class .btn-switch input {
+	display: none
+}
+
+.role_auth_tree_class .btn-switch label {
+	position: absolute;
+	width: 52px;
+	height: 24px;
+	line-height: 24px;
+	background: orange;
+	cursor: pointer;
+}
+
+.role_auth_tree_class .btn-switch label::before {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	position: absolute;
+	color: white;
+	content: '读';
+	left: auto;
+	right: 10%;
+}
+
+.role_auth_tree_class .btn-switch span::before {
+	content: " ";
+	position: absolute;
+	width: 26px;
+	height: 24px;
+	background: #F7F2F6 url(../image/switch-btn.png) repeat;
+	left: 0px;
+	top: 0px;
+}
+
+.role_auth_tree_class .btn-switch input:checked+label {
+	background: #47a2e9;
+}
+
+.role_auth_tree_class .btn-switch input:checked ~label span::before {
+	right: 0px;
+	left: auto;
+}
+
+.role_auth_tree_class .btn-switch input:checked ~label span::after {
+	right: 10px;
+	left: auto;
+}
+
+.role_auth_tree_class .btn-switch input:checked ~label::before {
+	content: '写';
+	color: white;
+	right: auto;
+	left: 15%;
+}
+
+.default-data-grid .x-panel-header-default {
+	background-color: white;
+	border: none;
+}
+
+.default-data-grid .x-panel-header-text-default {
+	font-weight: normal;
+	color: black;
+}
+
+.default-data-grid .x-panel-header {
+	padding: 5px 0;
+}
+
+.default-data-grid .x-tool-default .x-tool-img {
+	background-image: url(../image/ext/tools/tool-sprites-dark.png);
+	background-color: white;
+}
+
+#grid_button_toolbar .x-btn-default-toolbar-small .x-btn-inner {
+	font-size: 14px;
+	color: white;
+}
+
+#grid_button_toolbar .x-btn-icon-text-left .x-btn-icon-el {
+	overflow: hidden;
+	width: 16px;
+	height: 16px;
+	background-image: url(../image/ext/tools/tool-sprites.png);
+	margin: 0;
+}
+
+#grid_button_toolbar  .x-btn-icon-text-left .x-btn-icon-el.default_btn_icon_plus {
+	background-position: 0 -256px;
+}
+
+#grid_button_toolbar .x-btn-icon-text-left .x-btn-icon-el.default_btn_icon_minus {
+	background-position: 0 -272px;
+}
+
+#grid_button_toolbar .x-btn-icon-text-left .x-btn-icon-el.default_btn_icon_search {
+	background-position: 0 -288px;
+}
+
+#grid_button_toolbar .x-btn-icon-text-left .x-btn-icon-el.default_btn_icon_sort {
+	background-position: 0 -384px;
+}
+
+#grid_button_toolbar .x-btn-icon-text-left .x-btn-icon-el.default_btn_icon_startWf {
+	background-position: 0 -112px;
+}
+
+#grid_button_toolbar .x-btn-icon-text-left .x-btn-icon-el.default_btn_icon_excel {
+	background-position: 0 -400px;
+}
+
+#grid_button_toolbar .x-btn-icon-text-left .x-btn-icon-el.default_btn_icon_back {
+	background-position: 0 -432px;
+}
+
+#grid_button_toolbar .x-btn-icon-text-left .x-btn-icon-el.default_btn_icon_import {
+	background-position: 0 -448px;
+}
+
+#grid_button_toolbar .x-btn-default-toolbar-small {
+	background-image: none;
+	background-color: #47a2e9;
+	border: #47a2e9;
+	padding: 4px 4px 4px 8px;
+	border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	-ms-border-radius: 0px;
+	-o-border-radius: 0px;
+}
+
+#grid_button_toolbar .x-btn-default-toolbar-small-over {
+	background-image: none;
+	border: #5fb1f2;
+	background-color: #5fb1f2;
+}
+
+#grid_button_toolbar .x-btn-default-toolbar-small .x-btn-split-right {
+	background-image: url(../image/ext/tools/default-toolbar-small-s-arrow.png);
+	padding-right: 16px;
+}
+
+/****************grid里的toolbar的cls 为 grid_button_toolbar的通用样式*********************/
+.grid_button_toolbar .x-btn-default-toolbar-small .x-btn-inner {
+	font-size: 14px;
+	color: white;
+}
+
+.grid_button_toolbar .x-btn-icon-text-left .x-btn-icon-el {
+	overflow: hidden;
+	width: 16px;
+	height: 16px;
+	background-image: url(../image/ext/tools/tool-sprites.png);
+	margin: 0;
+}
+
+.grid_button_toolbar  .x-btn-icon-text-left .x-btn-icon-el.default_btn_icon_plus {
+	background-position: 0 -256px;
+}
+
+.grid_button_toolbar .x-btn-icon-text-left .x-btn-icon-el.default_btn_icon_minus {
+	background-position: 0 -272px;
+}
+
+.grid_button_toolbar .x-btn-icon-text-left .x-btn-icon-el.default_btn_icon_search {
+	background-position: 0 -288px;
+}
+
+.grid_button_toolbar .x-btn-icon-text-left .x-btn-icon-el.default_btn_icon_sort {
+	background-position: 0 -384px;
+}
+
+.grid_button_toolbar .x-btn-icon-text-left .x-btn-icon-el.default_btn_icon_startWf {
+	background-position: 0 -112px;
+}
+
+.grid_button_toolbar .x-btn-icon-text-left .x-btn-icon-el.default_btn_icon_excel {
+	background-position: 0 -400px;
+}
+
+.grid_button_toolbar .x-btn-icon-text-left .x-btn-icon-el.default_btn_icon_back {
+	background-position: 0 -432px;
+}
+
+.grid_button_toolbar .x-btn-icon-text-left .x-btn-icon-el.default_btn_icon_print {
+	background-position: 0 -335px;
+}
+
+.grid_button_toolbar .x-btn-default-toolbar-small {
+	background-image: none;
+	background-color: #47a2e9;
+	border: #47a2e9;
+	padding: 4px 4px 4px 8px;
+	border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	-ms-border-radius: 0px;
+	-o-border-radius: 0px;
+}
+
+.grid_button_toolbar .x-btn-default-toolbar-small-over {
+	background-image: none;
+	border: #5fb1f2;
+	background-color: #5fb1f2;
+}
+
+.grid_button_toolbar .x-btn-default-toolbar-small .x-btn-split-right {
+	background-image: url(../image/ext/tools/default-toolbar-small-s-arrow.png);
+	padding-right: 16px;
+}

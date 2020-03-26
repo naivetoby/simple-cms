@@ -1,0 +1,154 @@
+body {
+	margin: 0;
+	text-align: center;
+	padding-top: 170px;
+	background-color: #f6f6f6;
+	background-image: url(../image/background.png);
+}
+
+ul,ol {
+	list-style: none;
+}
+
+img {
+	border: 0;
+}
+
+.logo_title {
+	margin: 40px 0px;
+	height: 38px;
+	background: url(../image/logo_black.png) no-repeat center top;
+}
+
+.container {
+	width: 500px;
+	height: 360px;
+	margin: 0px auto;
+}
+
+.section-header {
+	height: 60px;
+	line-height: 60px;
+	background-color: #47a2e9;
+	background: #47a2e9 url(../image/login_img.png) no-repeat right top;
+}
+
+.section-header .content {
+	width: 420px;
+	height: 100%;
+	color: white;
+	font-weight: bold;
+	background: #47a2e9 url(../image/logo_name.png) no-repeat 6px top;
+	user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+}
+
+.section-header .content span.spilt {
+	margin: 0px 4px;
+}
+
+.section-content {
+	background-color: white;
+}
+
+.form-horizontal {
+	padding: 30px 105px 20px 105px;
+}
+
+.form-horizontal label {
+	float: left;
+	color: black;
+	font-weight: bold;
+	margin-right: 15px;
+}
+
+.form-horizontal .login_input {
+	float: right;
+	color: #555;
+	outline: none;
+	width: 208px;
+	height: 26px;
+	padding-top: 9px;
+	padding-left: 8px;
+	font-size: 14px;
+	margin-top: 18px;
+	line-height: 15px;
+	display: inline-block;
+	vertical-align: middle;
+	border: 1px solid rgb(71, 162, 233);
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border linear .2s, box-shadow linear .2s;
+	-moz-transition: border linear .2s, box-shadow linear .2s;
+	-o-transition: border linear .2s, box-shadow linear .2s;
+	transition: border linear .2s, box-shadow linear .2s;
+}
+
+.form-horizontal .login_input:focus {
+	border-color: rgba(71, 162, 233, 0.8);
+	outline: thin dotted 9;
+	-webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #47a2e9;
+	-moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #47a2e9;
+	box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #47a2e9;
+}
+
+.form-horizontal .checkbox {
+	color: black;
+	cursor: pointer;
+	font-weight: normal;
+	font-size: 14px;
+	user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+}
+
+.form-horizontal .checkbox input[type='checkbox'] {
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	margin-top: -2px;
+}
+
+#login_submit {
+	float: right;
+	background: #47a2e9;
+	border: none;
+	color: white;
+	font-size: 20px;
+	width: 140px;
+	height: 48px;
+	cursor: pointer;
+}
+
+#login_submit:hover {
+	background-color: #5fb1f2;
+}
+
+#login_submit:focus {
+	outline: none;
+}
+
+#login_submit.disabled {
+	cursor: default;
+	opacity: .65;
+	filter: alpha(opacity = 65);
+	background: #47a2e9 url(../image/btn_loading.gif) no-repeat 100px center;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+#login_submit.disabled:hover {
+	background-color: #47a2e9;
+}
+
+#submit-result {
+	text-align: left;
+	color: red;
+	visibility: visible;
+	font-size: 14px;
+}

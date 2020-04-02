@@ -164,22 +164,3 @@ BEGIN
   END
  ;;
 delimiter ;
-
--- ----------------------------
---  Function structure for `f_has_str`
--- ----------------------------
-DROP FUNCTION IF EXISTS `f_has_str`;
-delimiter ;;
-CREATE DEFINER=`heart`@`%` FUNCTION `f_has_str`() RETURNS int(11)
-BEGIN
-    DECLARE result INT;
-    IF (Instr(str1, str2) > -1)
-    THEN
-      SET result = 1;
-    ELSE
-      SET result = 0;
-    END IF;
-    RETURN (result);
-  END
- ;;
-delimiter ;

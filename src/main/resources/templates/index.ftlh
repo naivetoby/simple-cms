@@ -98,8 +98,7 @@
 </script>
 <#else>
 <div id="bestloader" style="display: none;"></div>
-<iframe id="login_iframe" src="login" width="500px" height="360px" frameborder="0"></iframe>
-<div id="home_page"></div>
+<iframe id="login_iframe" src="login" width="500px" height="360px" frameborder="0"></iframe><div id="home_page"></div>
 </#if>
 <div id="resources" style="display: none;"></div>
 </body>

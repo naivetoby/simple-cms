@@ -5,17 +5,11 @@
 ## Spring-Boot Dependency
 
 ```xml
-<dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-dependencies</artifactId>
-            <version>2.2.5.RELEASE</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-    </dependencies>
-</dependencyManagement>
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.6.7</version>
+</parent>
 ```
 
 ## 数据库初始化
@@ -30,11 +24,11 @@
 #是否启用超级管理员
 requireAdmin: true
 #超级管理员登录名
-superUserName: heart2020
+superUserName: heart2022
 #超级管理员密码
-superUserPwd: heart2020
+superUserPwd: heart2022
 #是否为开发模式
-isDevelopment: false
+isDevelopment: true
 #登录错误次数上限
 errorLoginCount: 3
 #登录错误超过错误次数上限，用户锁定时间（分钟）

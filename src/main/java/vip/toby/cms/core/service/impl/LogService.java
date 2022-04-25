@@ -37,7 +37,7 @@ public class LogService implements ILogService {
             action = "未知操作";
         }
         Log log = new Log();
-        log.setAction(action.replaceAll("'", "''").replaceAll(":", "\\:\\:"));
+        log.setAction(action.replaceAll("'", " "));
         log.setUserName(userName);
         log.setClientIp(clientIp);
         log.setLoginName(loginName);

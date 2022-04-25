@@ -71,12 +71,10 @@ public class ModuleService implements IModuleService {
         JSONObject children = CommonUtil.findLeafChildren(JSON.parseObject(CommonUtil.base64Decode(authJson)), modulePid.toString());
         List<RoleModule4Tree> modules = coreDataBaseService.list("parent_id = " + modulePid + " AND module_id > 9", sortCondition, RoleModule4Tree.class);
         if (children != null) {
-            Iterator<RoleModule4Tree> iter1 = modules.iterator();
-            while (iter1.hasNext()) {
-                RoleModule4Tree module = iter1.next();
+            for (RoleModule4Tree module : modules) {
                 Object[] keys = children.keySet().toArray();
-                for (int i = 0; i < keys.length; i++) {
-                    String key = (String) keys[i];
+                for (Object o : keys) {
+                    String key = (String) o;
                     if (module.getLeaf() && module.getModuleId().toString().equals(key)) {
                         module.setChecked(true);
                         module.setAuthValue(children.getIntValue(key));
@@ -98,8 +96,8 @@ public class ModuleService implements IModuleService {
                 Module4Tree module = iter1.next();
                 String hasKey = null;
                 Object[] keys = children.keySet().toArray();
-                for (int i = 0; i < keys.length; i++) {
-                    String key = (String) keys[i];
+                for (Object o : keys) {
+                    String key = (String) o;
                     if (module.getModuleId().toString().equals(key)) {
                         hasKey = key;
                         break;
@@ -161,7 +159,7 @@ public class ModuleService implements IModuleService {
         int total = coreDataBaseService.getTotal(ModuleDir.class, qureyCondition);
         // 查询结果
         List<ModuleDir> moduleDirs = coreDataBaseService.list(0, total, qureyCondition, sortCondition, ModuleDir.class);
-        moduleDirs.add(0, new ModuleDir(0l, "项目", FinalVariables.MODULE_VIEWTYPE.SYS_DIR.getViewType(), 0));
+        moduleDirs.add(0, new ModuleDir(0L, "项目", FinalVariables.MODULE_VIEWTYPE.SYS_DIR.getViewType(), 0));
         // 返回结果
         JSONObject responseObj = new JSONObject();
         responseObj.put("total", total);

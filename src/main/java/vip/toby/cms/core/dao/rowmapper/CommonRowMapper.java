@@ -12,6 +12,7 @@ import java.util.Map;
 /**
  * 将查询结果映射成List<map> Map<数据库列名,值>
  */
+@SuppressWarnings({ "rawtypes" })
 public class CommonRowMapper implements RowMapper {
 
     @Override

@@ -21,10 +21,10 @@
     <div class="section-content">
         <form class="form-horizontal" id="form-login">
             <div style="height: 75px; line-height: 75px;">
-                <label>账号：</label> <input type="text" id="loginName" name="loginName" class="login_input"/>
+                <label>账号：</label> <input type="text" id="loginName" name="loginName" value="heart2022" class="login_input"/>
             </div>
             <div style="height: 75px; line-height: 75px;">
-                <label>密码：</label> <input type="password" id="loginPassword" name="loginPassword" class="login_input"/>
+                <label>密码：</label> <input type="password" id="loginPassword" name="loginPassword" value="heart2022" class="login_input"/>
             </div>
             <div id="submit-result">&nbsp;</div>
             <div style="height: 70px; line-height: 70px; margin-top: 12px;">

@@ -125,10 +125,10 @@ public class UserService implements IUserService {
     // 获取用户所拥有的角色类型
     @Override
     public List<Integer> getRoleTypesByUserId(Long userId) {
-        List<Map<String, Object>> query = coreDataBaseService.query("SELECT r.role_type FROM t_role_user u LEFT JOIN t_role r ON r.role_id = u.role_id WHERE u.user_id = " + userId + "");
+        List<Map> query = coreDataBaseService.query("SELECT r.role_type FROM t_role_user u LEFT JOIN t_role r ON r.role_id = u.role_id WHERE u.user_id = " + userId + "");
         if (query != null && query.size() > 0) {
             List<Integer> list = new ArrayList<>();
-            for (Map<String, Object> map : query) {
+            for (Map map : query) {
                 list.add(Integer.valueOf(map.get("roleType").toString()));
             }
             return list;

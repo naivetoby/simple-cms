@@ -80,7 +80,7 @@ public class LoginController {
      */
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public Object postLogin(HttpServletRequest request, HttpServletResponse response, @RequestParam String loginName, @RequestParam String loginPassword) throws Exception {
+    public Object postLogin(HttpServletRequest request, HttpServletResponse response, @RequestParam String loginName, @RequestParam String loginPassword) {
         JSONObject json = new JSONObject();
         HttpSession session = request.getSession();
         String clientIp = getClientIp(request);
@@ -96,16 +96,14 @@ public class LoginController {
         if (lockMap.containsKey(loginName) && System.currentTimeMillis() < lockMap.get(loginName)) {
             json.put("error", "登录失败次数过多，此账号已被锁定" + lockTime + "分钟");
             return json;
-        } else if (lockMap.containsKey(loginName)) {
-            lockMap.remove(loginName);
-        }
+        } else lockMap.remove(loginName);
 
         try {
-            UserSession userSession = null;
+            UserSession userSession;
             if (requireAdmin && loginName.equals(superUserName)) {
                 if (loginPassword.equals(superUserPwd)) {
                     userSession = new UserSession();
-                    userSession.setUserId(-1l);
+                    userSession.setUserId(-1L);
                     userSession.setLoginName(loginName);
                     userSession.setUserName("超级管理员");
                     userSession.setClientIp(clientIp);
@@ -190,7 +188,7 @@ public class LoginController {
             userMap.put("clientIp", clientIp);
 
             // 设定定时器
-            long unlockTime = currentTime + lockTime * 60 * 1000;
+            long unlockTime = currentTime + lockTime * 60 * 1000L;
             lockMap.put(loginName, unlockTime);
             // 记录日志
             logService.addLog(clientIp, loginName, userName, "登录", "连续登录失败" + errorLoginCount + "次，账号被锁定" + lockTime + "分钟");
@@ -203,7 +201,7 @@ public class LoginController {
 
 
     private Date getDate(String time) {
-        if (time != null && StringUtils.isNumeric(time)) {
+        if (StringUtils.isNumeric(time)) {
             Calendar cal = Calendar.getInstance();
             cal.setTimeInMillis(Long.parseLong(time));
             return cal.getTime();

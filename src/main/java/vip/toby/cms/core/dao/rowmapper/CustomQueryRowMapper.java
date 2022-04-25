@@ -13,6 +13,7 @@ import java.util.Map;
 /**
  * 将查询结果映射成List<map> Map<实体成员变量名,值>
  */
+@SuppressWarnings({ "rawtypes" })
 public class CustomQueryRowMapper implements RowMapper {
 
     @Override

@@ -2,8 +2,9 @@ package vip.toby.cms.core.interceptor;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.servlet.HandlerInterceptor;
 
+import javax.annotation.Nonnull;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
@@ -15,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author TKJ
  */
 @Component
-public class GlobalInterceptor extends HandlerInterceptorAdapter {
+public class GlobalInterceptor implements HandlerInterceptor {
 
     private static Map<String, Object> GLOBAL = new ConcurrentHashMap<>();
 
@@ -27,7 +28,7 @@ public class GlobalInterceptor extends HandlerInterceptorAdapter {
     private int tipTime;
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(@Nonnull HttpServletRequest request, @Nonnull HttpServletResponse response, @Nonnull Object handler) throws Exception {
         if (!GLOBAL.containsKey("basePath")) {
             GLOBAL.put("basePath", request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/");
         }

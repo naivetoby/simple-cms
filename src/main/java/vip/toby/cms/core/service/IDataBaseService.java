@@ -109,7 +109,7 @@ public interface IDataBaseService {
      * @param querySql sql语句
      * @return 结果集
      */
-    List<Map<String, Object>> query(String querySql);
+    List<Map> query(String querySql);
 
     /**
      * 自定义更新或删除
@@ -126,6 +126,6 @@ public interface IDataBaseService {
      * @param outParams 输出参数，格式：Map<参数位置（从1开始）,参数值>
      * @return 返回结果，格式：Map<参数位置（从1开始）,返回值>
      */
-    Map<Integer, Object> execute(String procName, Map<Integer, Object> inParams, Map<Integer, Integer> outParams);
+    Map<Integer, ?> execute(String procName, Map<Integer, Object> inParams, Map<Integer, Integer> outParams);
 
 }

@@ -180,7 +180,7 @@ public class CommonUtil {
      * @return 或运算后的json
      */
     @SuppressWarnings({"unchecked"})
-    private static JSONObject jsonMerge(JSONObject json1, JSONObject json2) throws Exception {
+    private static JSONObject jsonMerge(JSONObject json1, JSONObject json2) {
         if (json1 == null) {
             return json2;
         }
@@ -351,7 +351,7 @@ public class CommonUtil {
     public static String escape(String src) {
         int i;
         char j;
-        StringBuffer tmp = new StringBuffer();
+        StringBuilder tmp = new StringBuilder();
         tmp.ensureCapacity(src.length() * 6);
         for (i = 0; i < src.length(); i++) {
             j = src.charAt(i);
@@ -377,7 +377,7 @@ public class CommonUtil {
      * @return 以","隔开的字符串
      */
     public static String concat(String... str) {
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         for (int i = 0; i < str.length; i++) {
             String s = str[i];
             if (StringUtils.isBlank(s)) {
@@ -408,7 +408,7 @@ public class CommonUtil {
 
     public static ComboPooledDataSource createComboPooledDataSource(String host, String port, String db, String user, String password) throws PropertyVetoException {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
-        dataSource.setDriverClass("com.mysql.jdbc.Driver");
+        dataSource.setDriverClass("com.mysql.cj.jdbc.Driver");
         dataSource.setJdbcUrl("jdbc:mysql://".concat(host).concat(":").concat(port).concat("/").concat(db).concat("?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2b8"));
         dataSource.setUser(user);
         dataSource.setPassword(password);

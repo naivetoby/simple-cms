@@ -25,5 +25,5 @@
             </encoder>
         </appender>
     </root>
-    <logger name="vip.toby.cms" level="INFO"/>
+    <logger name="vip.toby.cms" level="DEBUG"/>
 </configuration>

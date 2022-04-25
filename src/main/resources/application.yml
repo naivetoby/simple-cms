@@ -15,16 +15,16 @@ spring:
       cms: cms
       app: app_db_name
     user: heart
-    password: heart2020
+    password: heart2022
 
 #是否启用超级管理员
 requireAdmin: true
 #超级管理员登录名
-superUserName: heart2020
+superUserName: heart2022
 #超级管理员密码
-superUserPwd: heart2020
+superUserPwd: heart2022
 #是否为开发模式
-isDevelopment: false
+isDevelopment: true
 #登录错误次数上限
 errorLoginCount: 3
 #登录错误超过错误次数上限，用户锁定时间（分钟）

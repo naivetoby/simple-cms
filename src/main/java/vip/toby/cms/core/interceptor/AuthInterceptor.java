@@ -1,5 +1,9 @@
 package vip.toby.cms.core.interceptor;
 
+import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Component;
+import org.springframework.web.method.HandlerMethod;
+import org.springframework.web.servlet.HandlerInterceptor;
 import vip.toby.cms.core.annotation.interceptor.AuthRequired;
 import vip.toby.cms.core.annotation.interceptor.LoginDeny;
 import vip.toby.cms.core.dao.CommonDAO;
@@ -8,11 +12,8 @@ import vip.toby.cms.core.model.user.UserSession;
 import vip.toby.cms.core.util.CommonUtil;
 import vip.toby.cms.core.util.FinalVariables.ERRRO_CODE;
 import vip.toby.cms.core.util.FinalVariables.USER_AUTH;
-import org.apache.commons.lang.StringUtils;
-import org.springframework.stereotype.Component;
-import org.springframework.web.method.HandlerMethod;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,13 +28,13 @@ import static vip.toby.cms.core.util.FinalVariables.USER_SESSION;
  * @author TKJ
  */
 @Component
-public class AuthInterceptor extends HandlerInterceptorAdapter {
+public class AuthInterceptor implements HandlerInterceptor {
 
     @Resource
     private CommonDAO commonDAO;
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(@Nonnull HttpServletRequest request, @Nonnull HttpServletResponse response, @Nonnull Object handler) throws Exception {
 
         HandlerMethod handlerMethod = ((HandlerMethod) handler);
 

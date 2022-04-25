@@ -1,13 +1,14 @@
 package vip.toby.cms.core.interceptor;
 
+import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.HandlerInterceptor;
 import vip.toby.cms.core.model.user.UserSession;
 import vip.toby.cms.core.service.IUserService;
 import vip.toby.cms.core.util.FinalVariables.ERRRO_CODE;
 import vip.toby.cms.core.util.FinalVariables.USER_STATUS;
-import org.apache.commons.lang.StringUtils;
-import org.springframework.stereotype.Component;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,13 +18,13 @@ import static vip.toby.cms.core.listener.UserSessionListener.*;
 import static vip.toby.cms.core.util.FinalVariables.USER_SESSION;
 
 @Component
-public class LoginInterceptor extends HandlerInterceptorAdapter {
+public class LoginInterceptor implements HandlerInterceptor {
 
     @Resource
     private IUserService userService;
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(@Nonnull HttpServletRequest request, @Nonnull HttpServletResponse response, @Nonnull Object handler) throws Exception {
         HttpSession session = request.getSession();
         UserSession userSession = (UserSession) session.getAttribute(USER_SESSION);
         if (userSession == null) {

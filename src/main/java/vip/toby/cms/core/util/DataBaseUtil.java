@@ -6,9 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import net.sf.cglib.reflect.FastClass;
 import org.apache.commons.lang.StringUtils;
 
-import java.beans.IntrospectionException;
 import java.beans.PropertyDescriptor;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
@@ -31,7 +29,7 @@ public class DataBaseUtil {
     public static String dbNameToPropertyName(String dbName) {
         String propertyName = "";
 
-        StringBuffer buffer = new StringBuffer(dbName);
+        StringBuilder buffer = new StringBuilder(dbName);
         for (int j = 0; j < buffer.length(); j++) {
             if ("_".equals(Character.toString(buffer.charAt(j)))) {
                 buffer.setCharAt(j + 1, Character.toUpperCase(buffer.charAt(j + 1)));
@@ -54,7 +52,7 @@ public class DataBaseUtil {
         if (list == null) {
             return null;
         }
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
 
         for (int i = 0; i < list.size(); i++) {
             buffer.append(list.get(i));
@@ -73,8 +71,6 @@ public class DataBaseUtil {
      * @param entity    实体对象
      * @param fieldName 实体成员变量名
      * @return 实体成员变量的值
-     * @throws IntrospectionException
-     * @throws InvocationTargetException
      */
     @SuppressWarnings("unchecked")
     public static <T> T getValue(Object entity, String fieldName) {
@@ -131,7 +127,7 @@ public class DataBaseUtil {
         Map<String, String> filterMap = new HashMap<>();
         if (StringUtils.isNotBlank(queryCondition)) {
             JSONArray filters = JSONArray.parseArray(queryCondition);
-            filters.stream().forEach(obj -> {
+            filters.forEach(obj -> {
                 JSONObject condition = (JSONObject) JSON.toJSON(obj);
                 filterMap.put(condition.getString("property"), condition.getString("value"));
             });
@@ -146,7 +142,7 @@ public class DataBaseUtil {
      */
     private static String buildSortCondition(String sortStr) {
         // 排序条件
-        StringBuffer sortCondition = new StringBuffer("ORDER BY ");
+        StringBuilder sortCondition = new StringBuilder("ORDER BY ");
 
         // 解析排序请求
         JSONArray sorters = JSONArray.parseArray(sortStr);
@@ -154,7 +150,7 @@ public class DataBaseUtil {
             JSONObject sortItem = (JSONObject) sorters.get(i);
             String property = fieldNameHandle(sortItem);
             String direction = sortItem.getString("direction");
-            sortCondition.append(property + " " + direction);
+            sortCondition.append(property).append(" ").append(direction);
             if (i < sorters.size() - 1) {
                 sortCondition.append(",");
             }
@@ -187,7 +183,7 @@ public class DataBaseUtil {
      * @param property String 前台驼峰式变量名
      */
     private static String propertyNameToDBName(String property) {
-        StringBuffer buffer = new StringBuffer(property);
+        StringBuilder buffer = new StringBuilder(property);
         for (int j = 0; j < buffer.length(); j++) {
             Character c = buffer.charAt(j);
             if (Character.isUpperCase(buffer.charAt(j))) {

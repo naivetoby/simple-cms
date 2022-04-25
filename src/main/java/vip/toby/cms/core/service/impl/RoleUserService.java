@@ -56,7 +56,7 @@ public class RoleUserService implements IRoleUserService {
 
     @Override
     public JSONObject getBindRole4User(JSONObject json, Long roleId) {
-        List<Map<String, Object>> list = coreDataBaseService.query("SELECT user_id, user_name FROM v_user_grid WHERE status != " + FinalVariables.USER_STATUS.LOCKED.getStatus() + " AND user_id IN (SELECT user_id FROM t_role_user WHERE role_id = " + roleId + ") ORDER BY index_number ASC");
+        List<Map> list = coreDataBaseService.query("SELECT user_id, user_name FROM v_user_grid WHERE status != " + FinalVariables.USER_STATUS.LOCKED.getStatus() + " AND user_id IN (SELECT user_id FROM t_role_user WHERE role_id = " + roleId + ") ORDER BY index_number ASC");
         json.put("rows", JSON.toJSON(list));
         return json;
     }

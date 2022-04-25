@@ -99,7 +99,7 @@ public abstract class DataBaseService implements IDataBaseService {
         // 数据表表名
         String tableName;
         // 结果集
-        List<Map<String, Object>> list;
+        List<Map> list;
         // 实体对象集合
         List<T> entityList = new ArrayList<>();
         // 处理排序条件
@@ -129,7 +129,7 @@ public abstract class DataBaseService implements IDataBaseService {
         list = this.getDAO().list(tableName, DataBaseUtil.listToString(this.getColumnList(entityType), ", "), condition);
 
         // 将map结果集反射成bean集合
-        for (Map<String, Object> map : list) {
+        for (Map map : list) {
             T entity = this.mapToEntity(map, entityType);
             entityList.add(entity);
         }
@@ -142,7 +142,7 @@ public abstract class DataBaseService implements IDataBaseService {
         // 数据表表名
         String tableName;
         // 结果集
-        List<Map<String, Object>> list;
+        List<Map> list;
         // 实体对象集合
         List<T> entityList = new ArrayList<>();
         // 处理排序条件
@@ -178,7 +178,7 @@ public abstract class DataBaseService implements IDataBaseService {
         list = this.getDAO().list(tableName, DataBaseUtil.listToString(this.getColumnList(entityType), ", "), condition, start, offset);
 
         // 将map结果集反射成bean集合
-        for (Map<String, Object> map : list) {
+        for (Map map : list) {
             T entity = this.mapToEntity(map, entityType);
             entityList.add(entity);
         }
@@ -203,9 +203,9 @@ public abstract class DataBaseService implements IDataBaseService {
 
         logger.debug("SELECT " + DataBaseUtil.listToString(columnList, ", ") + " FROM " + tableName + " WHERE " + idProperty.getAnnotation(Column.class).name().toLowerCase() + " = " + id);
 
-        List<Map<String, Object>> list = this.getDAO().getEntity(tableName, DataBaseUtil.listToString(columnList, ", "), idProperty.getAnnotation(Column.class).name().toLowerCase(), id);
+        List<Map> list = this.getDAO().getEntity(tableName, DataBaseUtil.listToString(columnList, ", "), idProperty.getAnnotation(Column.class).name().toLowerCase(), id);
         if (list.size() > 0) {
-            Map<String, Object> map = this.getDAO().getEntity(tableName, DataBaseUtil.listToString(columnList, ", "), idProperty.getAnnotation(Column.class).name().toLowerCase(), id).get(0);
+            Map map = this.getDAO().getEntity(tableName, DataBaseUtil.listToString(columnList, ", "), idProperty.getAnnotation(Column.class).name().toLowerCase(), id).get(0);
             return this.mapToEntity(map, entityType);
         } else {
             return null;
@@ -234,7 +234,7 @@ public abstract class DataBaseService implements IDataBaseService {
     }
 
     @Override
-    public List<Map<String, Object>> query(String querySql) {
+    public List<Map> query(String querySql) {
         logger.debug(querySql);
         return this.getDAO().query(querySql);
     }
@@ -547,7 +547,7 @@ public abstract class DataBaseService implements IDataBaseService {
      * @throws SecurityException
      */
     @SuppressWarnings("unchecked")
-    protected <T> T mapToEntity(Map<String, ?> map, Class<T> entityType) throws InvocationTargetException, IntrospectionException, NoSuchFieldException, SecurityException {
+    protected <T> T mapToEntity(Map map, Class<T> entityType) throws InvocationTargetException, IntrospectionException, NoSuchFieldException, SecurityException {
         FastClass fastClass = FastClass.create(entityType);
         // 实体对象
         Object entity = fastClass.newInstance();

@@ -1,6 +1,7 @@
 package vip.toby.cms.core.service.impl;
 
 import net.sf.cglib.reflect.FastClass;
+import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,10 +23,7 @@ import java.lang.reflect.Method;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Mysql数据库服务
@@ -369,7 +367,7 @@ public abstract class DataBaseService implements IDataBaseService {
                 columnList.add(this.getColumnName(entityType, field.getName(), true));
                 // 获取值
                 Object value = DataBaseUtil.getValue(entity, field.getName());
-                valueList.add(insertValueHandler(field, value));
+                valueList.add(this.insertValueHandler(field, value));
             }
         }
 
@@ -381,7 +379,7 @@ public abstract class DataBaseService implements IDataBaseService {
                 columnList.add(this.getColumnName(entityType, field.getName(), true));
                 // 获取值
                 Object value = DataBaseUtil.getValue(entity, field.getName());
-                valueList.add(insertValueHandler(field, value));
+                valueList.add(this.insertValueHandler(field, value));
             }
         }
 
@@ -405,15 +403,15 @@ public abstract class DataBaseService implements IDataBaseService {
         String valueStr;
         if (field.isAnnotationPresent(Id.class)) {// 判断是否唯一标识
             if (null != value && StringUtils.isNotBlank(value.toString())) {
-                valueStr = "'" + value + "'";
+                valueStr = "'" + StringEscapeUtils.escapeSql(value.toString()) + "'";
             } else {
                 valueStr = "'" + DataBaseUtil.getUUID() + "'";
             }
         } else if (null != value) {
             if (String.class == field.getType() || Boolean.class == field.getType()) {// 判断是否字符串
-                valueStr = "'" + value.toString() + "'";
+                valueStr = "'" + StringEscapeUtils.escapeSql(value.toString()) + "'";
             } else {
-                valueStr = value.toString();
+                valueStr = StringEscapeUtils.escapeSql(value.toString());
             }
         } else {
             valueStr = "''";
@@ -434,12 +432,8 @@ public abstract class DataBaseService implements IDataBaseService {
         Field[] fields = entityType.getDeclaredFields();
         Field[] supFields = entityType.getSuperclass().getDeclaredFields();
         List<Field> fieldList = new ArrayList<>();
-        for (Field field : fields) {
-            fieldList.add(field);
-        }
-        for (Field field : supFields) {
-            fieldList.add(field);
-        }
+        fieldList.addAll(Arrays.asList(fields));
+        fieldList.addAll(Arrays.asList(supFields));
         for (Field field : fieldList) {
             if (field.isAnnotationPresent(Id.class)) {// 判断是否是主键
                 idProperty = field;

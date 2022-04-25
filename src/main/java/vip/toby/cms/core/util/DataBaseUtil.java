@@ -185,7 +185,7 @@ public class DataBaseUtil {
     private static String propertyNameToDBName(String property) {
         StringBuilder buffer = new StringBuilder(property);
         for (int j = 0; j < buffer.length(); j++) {
-            Character c = buffer.charAt(j);
+            char c = buffer.charAt(j);
             if (Character.isUpperCase(buffer.charAt(j))) {
                 buffer.setCharAt(j, Character.toLowerCase(c));
                 buffer.insert(j, "_");
